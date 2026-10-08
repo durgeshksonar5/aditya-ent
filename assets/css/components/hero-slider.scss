@@ -158,7 +158,18 @@
       }
 
       .customer-imgs.d-flex img {
-         margin-left: -18px;
+         width: 36px;
+         height: 36px;
+         border-radius: 50%;
+         object-fit: cover;
+         border: 2px solid #ffffff;
+         margin-left: -12px;
+         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+         display: block;
+
+         &:first-child {
+            margin-left: 0;
+         }
       }
 
       @include media-breakpoint-down(md) {

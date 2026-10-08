@@ -6,13 +6,27 @@
 }
 
 .choose-media {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   .choose-main-img,
+   img {
+      width: 100%;
+      max-width: 540px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+      display: block;
+   }
+
    @include media-breakpoint-down(lg) {
       margin-bottom: 60px;
    }
 
    .abs-img {
-      top: 100px;
-      right: 40px;
+      display: none;
    }
 }
 

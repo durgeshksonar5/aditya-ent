@@ -1,5 +1,5 @@
 .footer {
-	padding-top: 120px;
+	padding-top: 60px;
 	overflow: hidden;
 
 	.parallax-overly {
@@ -211,11 +211,11 @@
 }
 
 .footer-widgets {
-	margin-top: 60px;
-	padding: 110px 0px;
+	margin-top: 0;
+	padding: 60px 0px 50px;
 
 	@include media-breakpoint-down(lg) {
-		padding: 100px 0px 60px;
+		padding: 50px 0px 30px;
 	}
 
 	@extend .overly;

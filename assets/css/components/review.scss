@@ -1,143 +1,156 @@
-.review-wrapper {
-   max-width: 770px;
+.review-sec {
+   background-color: #f8fafc;
+   padding: 85px 0;
+}
 
-   @include media-breakpoint-down(xxl) {
-      max-width: 685px;
+.review-wrapper-center {
+   max-width: 820px;
+   margin: 0 auto;
+   position: relative;
+}
+
+.review-card-center {
+   background: #ffffff;
+   border-radius: 20px;
+   padding: 48px 50px 42px 50px;
+   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+   border: 1px solid #e9edf2;
+   text-align: center;
+   position: relative;
+   margin: 10px auto;
+   transition: all 0.3s ease;
+
+   .quote-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: rgba(253, 85, 35, 0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      margin-bottom: 20px;
+      font-size: 22px;
    }
 
-   margin-left: auto;
-   margin-right: 0;
-
-   h2 {
-      border-bottom: 1px solid var(--theme-border);
-      margin-bottom: 30px;
-      padding-bottom: 30px
+   .review-text {
+      font-size: 1.25rem;
+      font-weight: 500;
+      font-style: italic;
+      line-height: 1.85;
+      color: #334155;
+      margin-bottom: 22px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
    }
 
-   .swiper-pagination {
-      bottom: 0;
-      max-width: 350px;
-      left: auto;
-      right: 0;
-
+   .ratings {
+      margin-bottom: 18px;
+      color: #f59e0b;
+      font-size: 15px;
+      letter-spacing: 3px;
    }
 
-   .review-slider {
-      padding-bottom: 100px;
-
-      .swiper-button-next,
-      .swiper-button-prev {
-         top: 83%;
-         z-index: 4;
+   .client-info {
+      .client-name {
+         font-size: 1.15rem;
+         font-weight: 700;
+         color: #0f172a;
+         margin-bottom: 4px;
       }
-
-      .swiper-button-next {
-         left: 90px;
-      }
-
-      @include media-breakpoint-down(sm) {
-         padding-bottom: 140px;
-
-         .swiper-button-next,
-         .swiper-button-prev {
-            top: 73%;
-         }
-      }
-
-      .swiper-pagination {
-
-         &::after {
-            height: 1px;
-            width: 270px;
-            background: var(--primary);
-            z-index: 1;
-            content: '';
-            position: absolute;
-            @include position('vertical');
-            left: -70%;
-         }
-      }
-
-      .swiper-pagination-bullet {
-         width: 71px;
-         height: 77px;
-         background-size: contain;
-         background: transparent;
-         background-position: center;
-         background-repeat: no-repeat;
-         border-radius: 0;
-         transition: 0.3s;
-         opacity: .5;
-         margin: 0 5px !important;
-         mask-image: url('../images/rev-sh.png');
-         mask-size: contain;
-         mask-repeat: no-repeat;
-         background-color: var(--primary);
-
-         &::before {
-            display: none;
-         }
-
-      }
-
-      /* Individual images */
-      .custom-pagination .swiper-pagination-bullet:nth-child(1) {
-         background-image: url("../images/rev1.png");
-      }
-
-      .custom-pagination .swiper-pagination-bullet:nth-child(2) {
-         background-image: url("../images/rev2.png");
-      }
-
-      .custom-pagination .swiper-pagination-bullet:nth-child(3) {
-         background-image: url("../images/rev3.png");
-      }
-
-      .swiper-pagination span.swiper-pagination-bullet-active {
-         background-color: transparent;
-         opacity: 1;
-      }
-
-
-   }
-
-
-
-
-   .review-card {
-      padding-top: 40px;
-      @extend .overly;
-
-      &::before {
-         background: url('../images/icons/quote.png')no-repeat top left;
-      }
-
-      p {
-         font-size: 20px;
+      .client-role {
+         font-size: 0.92rem;
+         color: var(--primary);
          font-weight: 600;
-         font-style: italic;
-         line-height: 35px;
+         display: block;
       }
    }
 }
 
-.review-sec {
-   .review-thumb {
-      max-width: 354px;
-      border-radius: 0 50px 500px 500px;
-      @extend .overly;
+.review-wrapper-center {
+   .review-slider {
+      padding-bottom: 60px;
+      position: relative;
+   }
 
-      &::before {
-         background: transparent;
-         border: 3px solid var(--primary);
-         border-radius: 0 50px 500px 500px;
-         top: 40px;
-         left: -40px;
-         z-index: 1;
+   .swiper-button-next,
+   .swiper-button-prev {
+      width: 46px;
+      height: 46px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50%;
+      color: var(--primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      top: 45%;
+      transform: translateY(-50%);
+      z-index: 5;
+
+      &:hover {
+         background: var(--primary);
+         color: #ffffff;
+         border-color: var(--primary);
+         box-shadow: 0 6px 20px rgba(253, 85, 35, 0.3);
+      }
+   }
+
+   .swiper-button-prev {
+      left: -24px;
+   }
+
+   .swiper-button-next {
+      right: -24px;
+   }
+
+   .swiper-pagination {
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      text-align: center;
+   }
+
+   .swiper-pagination-bullet {
+      width: 10px;
+      height: 10px;
+      background: #cbd5e1;
+      opacity: 1;
+      border-radius: 50%;
+      margin: 0 5px !important;
+      display: inline-block;
+      transition: all 0.3s ease;
+
+      &.swiper-pagination-bullet-active {
+         width: 30px;
+         border-radius: 8px;
+         background: var(--primary);
+      }
+   }
+
+   @include media-breakpoint-down(lg) {
+      .swiper-button-prev {
+         left: -10px;
+      }
+      .swiper-button-next {
+         right: -10px;
+      }
+   }
+
+   @include media-breakpoint-down(md) {
+      .review-card-center {
+         padding: 35px 22px 28px 22px;
+
+         .review-text {
+            font-size: 1.05rem;
+            line-height: 1.65;
+         }
       }
 
-      @include media-breakpoint-down(lg) {
-         margin: 0 auto 60px 50px;
+      .swiper-button-next,
+      .swiper-button-prev {
+         display: none;
       }
    }
 }

@@ -46,11 +46,23 @@
       margin: 40px auto 25px;
       @extend .overly;
 
+      img {
+         width: 150px;
+         height: 150px;
+         border-radius: 50%;
+         object-fit: cover;
+         display: block;
+         @include transition();
+      }
+
       &::before {
          background: url('../images/process-s1.png');
       }
    }
    &:hover {
+      .process-thumb img {
+         transform: scale(1.05);
+      }
       .count{
          background-color: var(--primary) !important;
          color: var(--white)
