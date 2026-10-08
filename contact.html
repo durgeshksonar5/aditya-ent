@@ -42,10 +42,13 @@
     <div class="main-overlay"></div>
 <!-- Canvas Menu Start -->
     <div class="canvas-menu d-flex flex-column">
-        <div class="d-flex justify-content-between w-100 mb-4">
+        <div class="d-flex justify-content-between w-100 mb-4 align-items-center">
             <!-- Logo Here -->
             <div class="logo">
-                <img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo">
+                <a href="index.html" class="d-inline-flex align-items-center text-decoration-none">
+                    <img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo">
+                    <span class="brand-name ms-2">Aditya Enterprises</span>
+                </a>
             </div>
             <!-- Close Button -->
             <button type="button" class="canvas-close" aria-label="Close">
@@ -107,8 +110,9 @@
                 <nav class="navbar navbar-expand-xl">
                     <div class="container">
                         <a href="index.html" class="navbar-brand">
-                     <img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo" class="img-fluid">
-                  </a>
+                            <img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo" class="img-fluid">
+                            <span class="brand-name">Aditya Enterprises</span>
+                        </a>
                         <button class="navbar-toggler offcanvas-nav-btn" type="button">
                      Menu <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="none"
                         viewBox="0 0 14 12">
@@ -133,7 +137,7 @@
                         </div>
                         <div class="offcanvas offcanvas-start offcanvas-nav">
                             <div class="offcanvas-header">
-                                <a href="index.html" class="text-inverse"><img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo"></a>
+                                <a href="index.html" class="text-inverse d-inline-flex align-items-center"><img src="assets/images/logo-transferent.png" alt="Aditya Enterprises Logo"><span class="brand-name ms-2">Aditya Enterprises</span></a>
                                 <button type="button" class="btn-close bg-primary" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
 
@@ -149,7 +153,14 @@
                                         <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">Services</a>
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="services.html">Our Services</a></li>
-                                            <li><a class="dropdown-item" href="service/service-single.html">Service Details</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/plastic-injection-moulding.html">Plastic Injection Moulding</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/automotive-plastic-components.html">Automotive Plastic Components</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/automotive-lighting-components.html">Automotive Lighting Components</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/road-safety-reflectors.html">Road Safety Reflectors</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/tractor-lighting-components.html">Tractor Lighting Components</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/two-wheeler-lighting-components.html">Two-Wheeler Lighting Components</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/large-plastic-components.html">Large Plastic Components (550T–750T)</a></li>
+                                            <li><a class="dropdown-item" href="service/service-details/plastic-injection-moulding-sub-assembly.html">Plastic Sub-Assembly &amp; Welding</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-item">
@@ -443,12 +454,14 @@
                     <div class="footer-widget">
                         <h3 class="widget-title">Our Services</h3>
                         <ul>
-                            <li><a href="service/service-single.html">Plastic Injection Moulding</a></li>
-                            <li><a href="service/service-single.html">Automotive Lighting Parts</a></li>
-                            <li><a href="service/service-single.html">Road Safety Reflectors</a></li>
-                            <li><a href="service/service-single.html">Plastic Sub-Assembly</a></li>
-                            <li><a href="service/service-single.html">Heavy Tonnage Moulding</a></li>
-                            <li><a href="service/service-single.html">Secondary Operations</a></li>
+                            <li><a href="service/service-details/plastic-injection-moulding.html">Plastic Injection Moulding</a></li>
+                            <li><a href="service/service-details/automotive-plastic-components.html">Automotive Plastic Parts</a></li>
+                            <li><a href="service/service-details/automotive-lighting-components.html">Automotive Lighting Parts</a></li>
+                            <li><a href="service/service-details/road-safety-reflectors.html">Road Safety Reflectors</a></li>
+                            <li><a href="service/service-details/tractor-lighting-components.html">Tractor Lighting Parts</a></li>
+                            <li><a href="service/service-details/two-wheeler-lighting-components.html">Two-Wheeler Lighting</a></li>
+                            <li><a href="service/service-details/large-plastic-components.html">Large Plastic Parts</a></li>
+                            <li><a href="service/service-details/plastic-injection-moulding-sub-assembly.html">Plastic Sub-Assembly</a></li>
                         </ul>
                     </div>
                 </div>
@@ -482,8 +495,13 @@
         <div class="footer-bottom">
             <div class="container">
                 <div class="d-flex flex-wrap justify-content-between align-items-center">
-                    <p class="text-info copy-right mb-0 order-2 order-md-1">
-                        Copyright &copy; 2026 <a href="index.html">Aditya Enterprises</a>. All Rights Reserved.</p>
+                    <p class="text-info copy-right mb-0 order-2 order-md-1 d-flex flex-wrap align-items-center gap-2">
+                        <span>Copyright &copy; 2026 <a href="index.html">Aditya Enterprises</a>. All Rights Reserved.</span>
+                        <span class="d-inline-flex align-items-center gap-2 ms-md-2 ps-md-2 border-start border-secondary">
+                            Design &amp; Developed By
+                            <img src="assets/office-logo-footer.png" alt="Company Logo" style="height: 24px; width: auto; vertical-align: middle; object-fit: contain;">
+                        </span>
+                    </p>
                     <nav class="footer-nav order-1 order-md-2">
                         <ul>
                             <li><a href="#">Privacy Policy </a></li>
