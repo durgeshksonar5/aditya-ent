@@ -1903,7 +1903,10 @@ button.burger-menu, .burger-menu {
 }
 
 .canvas-menu .logo img {
-    max-width: 175px
+    height: 58px;
+    max-height: 58px;
+    width: auto;
+    object-fit: contain;
 }
 
 .canvas-menu.open {
@@ -2169,15 +2172,34 @@ button.burger-menu, .burger-menu {
     right: 0
 }
 
+.navbar-brand img,
+.header .navbar-brand img {
+    height: 52px;
+    max-height: 52px;
+    width: auto;
+    object-fit: contain;
+}
+
+.offcanvas-header img {
+    height: 48px;
+    max-height: 48px;
+    width: auto;
+    object-fit: contain;
+}
+
 @media (max-width:991.98px) {
     .header .navbar-brand img {
-        max-width: 180px
+        height: 48px;
+        max-height: 48px;
+        width: auto;
     }
 }
 
 @media (max-width:767.98px) {
     .header .navbar-brand img {
-        max-width: 155px
+        height: 42px;
+        max-height: 42px;
+        width: auto;
     }
 }
 
@@ -3180,6 +3202,13 @@ section.promo-sec .breadcrumb-item+.breadcrumb-item:before {
 
 .footer-widget .f-logo {
     margin-bottom: 35px
+}
+
+.footer-widget .f-logo img {
+    height: 55px;
+    max-height: 55px;
+    width: auto;
+    object-fit: contain;
 }
 
 .footer-widget .widget-title {
@@ -4949,23 +4978,81 @@ section.promo-sec .breadcrumb-item+.breadcrumb-item:before {
 }
 
 .service-card {
-    padding: 30px;
+    padding: 32px 28px 45px 28px;
+    -webkit-mask-image: url(../images/s-mask.png);
     mask-image: url(../images/s-mask.png);
-    mask-repeat: no-repeat
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    min-height: 530px;
+    width: 100%;
+    background-color: var(--white);
+    box-sizing: border-box;
+}
+
+.service-card .service-head {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.service-card .service-head h3 {
+    margin: 0;
+    font-size: 21px;
+    line-height: 1.3;
 }
 
 .service-card .service-thumb {
-    margin: 30px 0 25px;
+    margin: 18px 0 16px;
+    height: 180px;
+    flex-shrink: 0;
+    -webkit-mask-image: url(../images/serv-shape.png);
     mask-image: url(../images/serv-shape.png);
-    mask-size: contain;
-    mask-repeat: no-repeat
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.service-card .service-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-card p {
+    flex-grow: 1;
+    margin-bottom: 0;
+    line-height: 1.6;
+    min-height: 72px;
+}
+
+.service-card .service-footer {
+    padding-top: 16px;
+    margin-top: auto;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .service-card .service-footer span {
     background-color: var(--shade);
     color: var(--dark);
-    width: 40px;
-    height: 40px
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
 }
 
 .service-card .service-footer span,
@@ -4988,6 +5075,17 @@ section.promo-sec .breadcrumb-item+.breadcrumb-item:before {
 
 .services-carousel {
     position: relative
+}
+
+.services-carousel .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+}
+
+.services-carousel .swiper-slide {
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 @media (min-width:1400px) {
@@ -5052,8 +5150,17 @@ section.promo-sec .breadcrumb-item+.breadcrumb-item:before {
     align-items: center
 }
 
+.services-sec .row.gy-4 > div {
+    display: flex;
+}
+
 .service-card2 {
-    padding: 30px
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
 }
 
 .service-card2 .serv-thumb {
@@ -5092,13 +5199,22 @@ section.promo-sec .breadcrumb-item+.breadcrumb-item:before {
 }
 
 .service-card2 h3 {
-    margin: 55px 0 20px;
-    font-weight: 700
+    margin: 35px 0 15px;
+    font-weight: 700;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+}
+
+.service-card2 p {
+    flex-grow: 1;
+    margin-bottom: 0;
+    line-height: 1.6;
 }
 
 .service-card2 .service-footer {
-    margin-top: 35px;
-    padding-top: 35px
+    margin-top: 25px;
+    padding-top: 20px
 }
 
 .service-card2 .service-footer span {
