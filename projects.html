@@ -32,6 +32,234 @@
     <!-- Style CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <style>
+        /* Modern Product Showcase Styling */
+        .products-showcase-section {
+            background-color: #f8fafc;
+        }
+        .portfolio-filter-wrap {
+            margin-bottom: 45px;
+        }
+        .portfolio-menu .nav {
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: #ffffff;
+            padding: 8px 12px;
+            border-radius: 50px;
+            gap: 8px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .portfolio-menu .nav .nav-link {
+            border: 1px solid transparent;
+            background: transparent;
+            color: #334155;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 22px;
+            border-radius: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .portfolio-menu .nav .nav-link:hover {
+            color: var(--primary, #fd5523);
+            background: rgba(253, 85, 35, 0.08);
+        }
+        .portfolio-menu .nav .nav-link.active {
+            background: var(--primary, #fd5523) !important;
+            color: #ffffff !important;
+            box-shadow: 0 6px 18px rgba(253, 85, 35, 0.35);
+        }
+        .product-showcase-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .product-showcase-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(253, 85, 35, 0.4);
+        }
+        .product-img-wrap {
+            position: relative;
+            height: 250px;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow: hidden;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .product-img-wrap img {
+            max-height: 200px;
+            max-width: 90%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+            filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.09));
+        }
+        .product-showcase-card:hover .product-img-wrap img {
+            transform: scale(1.08);
+        }
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(15, 23, 42, 0.85);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            z-index: 2;
+        }
+        .product-badge.badge-primary {
+            background: var(--primary, #fd5523);
+            color: #ffffff;
+        }
+        .quick-zoom-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            color: #0f172a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+            opacity: 0;
+            transform: scale(0.7);
+            transition: all 0.3s ease;
+            z-index: 2;
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .product-showcase-card:hover .quick-zoom-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .quick-zoom-btn:hover {
+            background: var(--primary, #fd5523);
+            color: #ffffff;
+        }
+        .product-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-category {
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary, #fd5523);
+            letter-spacing: 0.6px;
+            margin-bottom: 8px;
+        }
+        .product-title {
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.35;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        .product-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .product-title a:hover {
+            color: var(--primary, #fd5523);
+        }
+        .product-desc {
+            font-size: 13.5px;
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .product-specs {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .product-specs li {
+            font-size: 11.5px;
+            background: #f1f5f9;
+            color: #334155;
+            padding: 5px 11px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .product-specs li i {
+            color: var(--primary, #fd5523);
+            font-size: 10px;
+        }
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid #f1f5f9;
+            margin-top: auto;
+        }
+        .product-link-btn {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary, #fd5523);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s ease;
+        }
+        .product-link-btn:hover {
+            color: #0f172a;
+            gap: 10px;
+        }
+        .product-enquire-btn {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .product-enquire-btn:hover {
+            background: var(--primary, #fd5523);
+            border-color: var(--primary, #fd5523);
+            color: #ffffff;
+        }
+    </style>
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -205,111 +433,588 @@
     <!-- Promo Section End -->
 
 
-    <!-- Services Section Start -->
-    <section class="services-3 case-2 sec-padding overflow-hidden">
+    <!-- Products Showcase Section Start -->
+    <section class="products-showcase-section sec-padding bg-light overflow-hidden">
         <div class="container">
-            <div class="sec-intro mx-auto text-center">
+            <div class="sec-intro mx-auto text-center mb-4">
                 <span class="sub-title fadeInUp">
-               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="18" fill="none" viewBox="0 0 30 18">
-                  <path fill="#fd5523"
-                     d="M8.125 15.429h-2.5a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h2.5c.166 0 .325.068.442.188a.65.65 0 0 1 0 .91.62.62 0 0 1-.442.188m20.313 0h-1.563a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h1.044l.842-4.618c-.011-2.364-1.973-4.382-4.386-4.382h-4.104l-1.989 9h3.593c.166 0 .325.068.442.188a.653.653 0 0 1 0 .91.62.62 0 0 1-.442.188H17.5a.61.61 0 0 1-.488-.242.65.65 0 0 1-.122-.543L19.162 4.36a.65.65 0 0 1 .22-.361.6.6 0 0 1 .39-.14h4.603C27.476 3.857 30 6.452 30 9.642l-.949 5.261a.65.65 0 0 1-.214.377.6.6 0 0 1-.4.148" />
-                  <path fill="#fd5523"
-                     d="M24.375 18c-1.722 0-3.125-1.441-3.125-3.214s1.403-3.215 3.125-3.215c1.723 0 3.125 1.442 3.125 3.215S26.098 18 24.375 18m0-5.143c-1.034 0-1.875.866-1.875 1.929s.841 1.928 1.875 1.928 1.875-.865 1.875-1.928-.841-1.929-1.875-1.929M10.625 18C8.903 18 7.5 16.559 7.5 14.786s1.403-3.215 3.125-3.215c1.723 0 3.125 1.442 3.125 3.215S12.348 18 10.625 18m0-5.143c-1.034 0-1.875.866-1.875 1.929s.841 1.928 1.875 1.928 1.875-.865 1.875-1.928c0-1.064-.841-1.929-1.875-1.929m-2.5-9h-5a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.91.62.62 0 0 1 .442-.188h5c.166 0 .325.068.442.189a.65.65 0 0 1 0 .909.62.62 0 0 1-.442.188m0 3.857h-6.25a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.91.62.62 0 0 1 .442-.187h6.25c.166 0 .325.067.442.188a.65.65 0 0 1 0 .909.62.62 0 0 1-.442.188m0 3.857h-7.5a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h7.5c.166 0 .325.067.442.188a.65.65 0 0 1 0 .91.62.62 0 0 1-.442.187" />
-                  <path fill="#fd5523"
-                     d="M17.5 15.429h-4.375a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188H17l2.84-12.857H5.625a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909A.62.62 0 0 1 5.625 0h15a.61.61 0 0 1 .488.241.65.65 0 0 1 .122.543L18.11 14.927a.65.65 0 0 1-.22.36.6.6 0 0 1-.39.142" />
-               </svg>
-               Our Products</span>
-                <h2 class="sec-title">Featured Manufacturing Products &amp; Components</h2>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="18" fill="none" viewBox="0 0 30 18">
+                      <path fill="#fd5523"
+                         d="M8.125 15.429h-2.5a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h2.5c.166 0 .325.068.442.188a.65.65 0 0 1 0 .91.62.62 0 0 1-.442.188m20.313 0h-1.563a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h1.044l.842-4.618c-.011-2.364-1.973-4.382-4.386-4.382h-4.104l-1.989 9h3.593c.166 0 .325.068.442.188a.653.653 0 0 1 0 .91.62.62 0 0 1-.442.188H17.5a.61.61 0 0 1-.488-.242.65.65 0 0 1-.122-.543L19.162 4.36a.65.65 0 0 1 .22-.361.6.6 0 0 1 .39-.14h4.603C27.476 3.857 30 6.452 30 9.642l-.949 5.261a.65.65 0 0 1-.214.377.6.6 0 0 1-.4.148" />
+                      <path fill="#fd5523"
+                         d="M24.375 18c-1.722 0-3.125-1.441-3.125-3.214s1.403-3.215 3.125-3.215c1.723 0 3.125 1.442 3.125 3.215S26.098 18 24.375 18m0-5.143c-1.034 0-1.875.866-1.875 1.929s.841 1.928 1.875 1.928 1.875-.865 1.875-1.928-.841-1.929-1.875-1.929M10.625 18C8.903 18 7.5 16.559 7.5 14.786s1.403-3.215 3.125-3.215c1.723 0 3.125 1.442 3.125 3.215S12.348 18 10.625 18m0-5.143c-1.034 0-1.875.866-1.875 1.929s.841 1.928 1.875 1.928 1.875-.865 1.875-1.928c0-1.064-.841-1.929-1.875-1.929m-2.5-9h-5a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.91.62.62 0 0 1 .442-.188h5c.166 0 .325.068.442.189a.65.65 0 0 1 0 .909.62.62 0 0 1-.442.188m0 3.857h-6.25a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.91.62.62 0 0 1 .442-.187h6.25c.166 0 .325.067.442.188a.65.65 0 0 1 0 .909.62.62 0 0 1-.442.188m0 3.857h-7.5a.62.62 0 0 1-.442-.188.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188h7.5c.166 0 .325.067.442.188a.65.65 0 0 1 0 .91.62.62 0 0 1-.442.187" />
+                      <path fill="#fd5523"
+                         d="M17.5 15.429h-4.375a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909.62.62 0 0 1 .442-.188H17l2.84-12.857H5.625a.62.62 0 0 1-.442-.189.65.65 0 0 1 0-.909A.62.62 0 0 1 5.625 0h15a.61.61 0 0 1 .488.241.65.65 0 0 1 .122.543L18.11 14.927a.65.65 0 0 1-.22.36.6.6 0 0 1-.39.142" />
+                   </svg>
+                   Our Manufactured Products
+                </span>
+                <h2 class="sec-title mb-3">Engineered Precision Components &amp; Assemblies</h2>
+                <p class="text-muted mx-auto" style="max-width: 780px;">
+                    Explore our comprehensive range of high-precision automotive plastic components, Tier-1 OEM lighting housings, durable ABS road safety reflectors, and heavy-tonnage injection mouldings manufactured across dual plants in Bhosari, Pune.
+                </p>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv5.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv1.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">Motard Housing H/L</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>High-precision two-wheeler headlamp housing manufactured for Piaggio adhering to strict dimensional tolerances and thermal durability.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv6.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv2.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">ITL Housing</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>Robust agricultural tractor housing component engineered for John Deere with high structural strength and impact resistance.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv7.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv3.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">TPL Compact Housing</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>Heavy-duty precision injection moulded tractor component for John Deere meeting zero-defect quality and rugged performance.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv8.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv4.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">ABS Road Reflectors</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>Raised pavement marker moulded from uncoloured ABS natural plastic with up to 50-ton load resistance and 10-year durability.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv5.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv1.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">Lighting Housings</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>Precision headlamp and tail lamp assemblies with ultrasonic welding and secondary finishing for commercial and passenger vehicles.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="service-entry bg-cover round" style="background-image: url('assets/images/serv6.jpg');">
-                        <div class="serv-txt rounded-4">
-                            <div class="serv-heading">
-                                <span class="serv-icon"><img src="assets/images/sv2.png" alt="icon"></span>
-                                <div class="d-flex align-items-center justify-content-between serv-title">
-                                    <h3 class="display-4"><a href="service/service-single.html">Heavy Tonnage Plastics</a></h3>
-                                    <span><i class="fa-solid fa-angles-right"></i></span>
-                                </div>
-                            </div>
-                            <p>Large-scale moulded plastic components produced at Plant 2 Sector 7 Bhosari using heavy tonnage 550T–750T machines.</p>
-                        </div>
-                    </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="portfolio-filter-wrap text-center mb-5">
+                <div class="portfolio-menu">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" data-filter="*">
+                                <i class="fa-solid fa-border-all"></i> All Products (14)
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-filter=".lighting">
+                                <i class="fa-solid fa-lightbulb"></i> Automotive Lighting &amp; Lenses
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-filter=".tractor">
+                                <i class="fa-solid fa-tractor"></i> Tractor &amp; Agriculture Housings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-filter=".reflectors">
+                                <i class="fa-solid fa-road"></i> Road Safety Reflectors
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-filter=".mouldings">
+                                <i class="fa-solid fa-gears"></i> Automotive Mouldings &amp; Brackets
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4" id="gallery-container">
+                <div class="grid-sizer col-lg-4 col-md-6"></div>
+
+                <!-- Product 1: Motard Housing (Piaggio) -->
+                <div class="grid-item col-lg-4 col-md-6 lighting mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-award me-1"></i> Piaggio OEM</span>
+                            <a href="assets/images-data/Glossy Black Automotive Housing Component.png" data-fancybox="product-gallery" data-caption="Motard Headlamp Housing H/L - Precision Two-Wheeler Component manufactured for Piaggio" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Glossy Black Automotive Housing Component.png" alt="Motard Housing H/L Piaggio" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Two-Wheeler Lighting Housing</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/two-wheeler-lighting-components.html">Motard Housing H/L (Piaggio)</a>
+                            </h4>
+                            <p class="product-desc">
+                                High-precision headlamp housing manufactured for Piaggio adhering to strict dimensional tolerances, heat resistance, and structural integrity under vibration.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Heat-Resistant Polymer</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Tight Tooling Tolerances</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Vibration Dampening</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/two-wheeler-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Glossy Black Automotive Housing Component.png" data-fancybox="product-gallery" data-caption="Motard Housing H/L (Piaggio)" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2: ITL & TPL Compact Housing (John Deere) -->
+                <div class="grid-item col-lg-4 col-md-6 tractor mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-tractor me-1"></i> John Deere OEM</span>
+                            <a href="assets/images-data/Off-White Molded Plastic Housing Component.png" data-fancybox="product-gallery" data-caption="ITL Housing Component for John Deere - Heavy-Duty Agricultural Tractor Housing" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Off-White Molded Plastic Housing Component.png" alt="ITL Housing John Deere" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Tractor &amp; Agriculture Housing</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/tractor-lighting-components.html">ITL &amp; TPL Compact Housing</a>
+                            </h4>
+                            <p class="product-desc">
+                                Heavy-duty precision injection moulded tractor housing engineered for John Deere with reinforced structural ribbing for maximum field durability.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> High-Impact ABS/Nylon</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Zero-Defect Standard</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Heavy Field Ruggedness</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/tractor-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Off-White Molded Plastic Housing Component.png" data-fancybox="product-gallery" data-caption="ITL &amp; TPL Compact Housing (John Deere)" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: 50-Ton ABS Road Safety Reflector -->
+                <div class="grid-item col-lg-4 col-md-6 reflectors">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-shield-halved me-1"></i> 50-Ton RPM</span>
+                            <a href="assets/images-data/White Road Reflector with Red Panels.png" data-fancybox="product-gallery" data-caption="ABS Road Safety Reflector (Raised Pavement Marker) - 50-Ton Compressive Load Tested" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/White Road Reflector with Red Panels.png" alt="White ABS Road Reflector with Red Panels" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Road Safety &amp; Infrastructure</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/road-safety-reflectors.html">ABS Road Safety Reflector (50-Ton RPM)</a>
+                            </h4>
+                            <p class="product-desc">
+                                Raised pavement marker moulded from uncoloured virgin ABS natural plastic with dual micro-prismatic acrylic lenses providing 50-ton compressive strength.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> 50-Ton Load Resistance</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Micro-Prismatic PMMA</li>
+                                <li><i class="fa-solid fa-check-circle"></i> MORTH Standard Compliant</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/road-safety-reflectors.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/White Road Reflector with Red Panels.png" data-fancybox="product-gallery" data-caption="ABS Road Safety Reflector (50-Ton Load Resistant)" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: Automotive Tail Light Lens Assembly -->
+                <div class="grid-item col-lg-4 col-md-6 lighting reflectors">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-car me-1"></i> Optical Grade</span>
+                            <a href="assets/images-data/Glossy Red Automotive Tail Light Lens.png" data-fancybox="product-gallery" data-caption="Glossy Red Automotive Tail Light & Reflex Lens - High Optical Clarity & Weather Resistance" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Glossy Red Automotive Tail Light Lens.png" alt="Glossy Red Automotive Tail Light Lens" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Automotive Lighting Optics</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-lighting-components.html">Automotive Tail Light &amp; Reflex Lens</a>
+                            </h4>
+                            <p class="product-desc">
+                                High-transmittance red optical lens with integrated retro-reflective micro-prism facets, UV stabilization, and ultrasonic hermetic seal compatibility.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Optical Grade PMMA / PC</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Ultrasonic Weldable</li>
+                                <li><i class="fa-solid fa-check-circle"></i> UV &amp; Weatherproof</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Glossy Red Automotive Tail Light Lens.png" data-fancybox="product-gallery" data-caption="Automotive Tail Light & Reflex Lens" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Mahindra Automotive Bracket Assembly -->
+                <div class="grid-item col-lg-4 col-md-6 mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-building-circle-check me-1"></i> Mahindra OEM</span>
+                            <a href="assets/images-data/Mahindra Automotive Bracket Assembly.png" data-fancybox="product-gallery" data-caption="Mahindra Automotive Bracket Assembly - Precision Sub-Assembly with Metal Inserts" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Mahindra Automotive Bracket Assembly.png" alt="Mahindra Automotive Bracket Assembly" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Structural Sub-Assembly</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/plastic-injection-moulding-sub-assembly.html">Mahindra Automotive Bracket Assembly</a>
+                            </h4>
+                            <p class="product-desc">
+                                Precision structural mounting bracket manufactured for Mahindra automotive platforms with high-strength glass-filled polymer and embedded metal inserts.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Glass-Filled Nylon-66</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Metal Insert Overmoulding</li>
+                                <li><i class="fa-solid fa-check-circle"></i> High Mechanical Tensile</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/plastic-injection-moulding-sub-assembly.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Mahindra Automotive Bracket Assembly.png" data-fancybox="product-gallery" data-caption="Mahindra Automotive Bracket Sub-Assembly" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Amber Ribbed Lens Cover -->
+                <div class="grid-item col-lg-4 col-md-6 lighting tractor">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-truck-monster me-1"></i> Commercial &amp; Tractor</span>
+                            <a href="assets/images-data/Amber Ribbed Lens Cover on White.png" data-fancybox="product-gallery" data-caption="Amber Ribbed Indicator Lens Cover - High-Optic Signal & Indicator Dispersion Lens" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Amber Ribbed Lens Cover on White.png" alt="Amber Ribbed Lens Cover" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Signal &amp; Indicator Optics</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/two-wheeler-lighting-components.html">Amber Ribbed Turn Signal Lens</a>
+                            </h4>
+                            <p class="product-desc">
+                                Precision fluted optic dispersion lens for turn indicators and side blinkers engineered for maximum light scattering and outdoor environmental resistance.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Fluted Optical Prisms</li>
+                                <li><i class="fa-solid fa-check-circle"></i> UV Amber Polycarbonate</li>
+                                <li><i class="fa-solid fa-check-circle"></i> AIS / ECE Photometric Compliant</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/two-wheeler-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Amber Ribbed Lens Cover on White.png" data-fancybox="product-gallery" data-caption="Amber Ribbed Indicator Lens Cover" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7: Automotive Plastic Parts Showcase -->
+                <div class="grid-item col-lg-4 col-md-6 mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-cubes me-1"></i> Precision Moulding</span>
+                            <a href="assets/images-data/Automotive Plastic Parts Showcase.png" data-fancybox="product-gallery" data-caption="Automotive Plastic Parts Showcase - Multi-Material Precision Mouldings" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Automotive Plastic Parts Showcase.png" alt="Automotive Plastic Parts Showcase" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Moulding Portfolio</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-plastic-components.html">Automotive Plastic Parts Showcase</a>
+                            </h4>
+                            <p class="product-desc">
+                                Full spectrum of custom automotive injection moulded parts including under-hood brackets, interior trims, wiring retainers, and functional housings.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Multi-Cavity Moulds</li>
+                                <li><i class="fa-solid fa-check-circle"></i> ABS, PP, Nylon, PBT</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Dual-Plant Production</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-plastic-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Automotive Plastic Parts Showcase.png" data-fancybox="product-gallery" data-caption="Automotive Plastic Parts Showcase" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8: Automotive Lighting Parts Showcase -->
+                <div class="grid-item col-lg-4 col-md-6 lighting">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge badge-primary"><i class="fa-solid fa-lightbulb me-1"></i> Lighting Systems</span>
+                            <a href="assets/images-data/Automotive Lighting Parts Showcase.png" data-fancybox="product-gallery" data-caption="Automotive Lighting Parts Showcase - Integrated Housings, Reflectors and Lenses" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Automotive Lighting Parts Showcase.png" alt="Automotive Lighting Parts Showcase" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Complete Lighting Systems</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-lighting-components.html">Automotive Lighting Assemblies</a>
+                            </h4>
+                            <p class="product-desc">
+                                Turnkey lighting sub-assemblies featuring high-precision rear reflector housings, optical front lenses, sealed lamp chambers, and electrical terminal fitments.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Complete Lamp Modules</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Dust &amp; Water Sealed (IP67)</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Ultrasonic Welded</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Automotive Lighting Parts Showcase.png" data-fancybox="product-gallery" data-caption="Automotive Lighting Assemblies Showcase" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9: Precision Beige Mechanical Housing -->
+                <div class="grid-item col-lg-4 col-md-6 tractor mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-gear me-1"></i> Industrial Grade</span>
+                            <a href="assets/images-data/Beige Plastic Mechanical Housing Component.png" data-fancybox="product-gallery" data-caption="Beige Plastic Mechanical Housing Component - Heavy-Duty Industrial Polymer Housing" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Beige Plastic Mechanical Housing Component.png" alt="Beige Plastic Mechanical Housing Component" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Mechanical Polymer Housing</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/plastic-injection-moulding.html">Precision Mechanical Housing</a>
+                            </h4>
+                            <p class="product-desc">
+                                Dimensionally stable industrial housing engineered for high load and thermal stress, maintaining zero warpage and tight alignment in demanding environments.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Glass-Filled PBT / PA6</li>
+                                <li><i class="fa-solid fa-check-circle"></i> High Torque Resistance</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Precision Core Action Tooling</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/plastic-injection-moulding.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Beige Plastic Mechanical Housing Component.png" data-fancybox="product-gallery" data-caption="Beige Mechanical Housing Component" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10: Black Plastic Housing Interior Close-Up -->
+                <div class="grid-item col-lg-4 col-md-6 mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-microscope me-1"></i> Tooling Precision</span>
+                            <a href="assets/images-data/Black Plastic Housing Interior Close-Up.png" data-fancybox="product-gallery" data-caption="Black Plastic Housing Interior Close-Up - Complex Ribbing, Snap-Fits and Precision Boss Details" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Black Plastic Housing Interior Close-Up.png" alt="Black Plastic Housing Interior Close-Up" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Internal Geometry &amp; Tooling</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/plastic-injection-moulding.html">Internal Ribbed Structural Housing</a>
+                            </h4>
+                            <p class="product-desc">
+                                Multi-cavity internal core featuring integrated snap-fits, locating bosses, wiring routing channels, and rib reinforcements engineered for fast assembly.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Complex Undercuts &amp; Lifters</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Integrated Snap-Fits</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Uniform Wall Thickness</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/plastic-injection-moulding.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Black Plastic Housing Interior Close-Up.png" data-fancybox="product-gallery" data-caption="Internal Ribbed Structural Housing Detail" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11: Glossy Black Mounting Bracket Housing -->
+                <div class="grid-item col-lg-4 col-md-6 mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-wrench me-1"></i> Chassis Mounting</span>
+                            <a href="assets/images-data/Glossy Black Mounting Bracket Housing.png" data-fancybox="product-gallery" data-caption="Glossy Black Mounting Bracket Housing - Class-A Surface Finish Automotive Bracket" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Glossy Black Mounting Bracket Housing.png" alt="Glossy Black Mounting Bracket Housing" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Automotive Exterior Bracket</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-plastic-components.html">Glossy Mounting Bracket Housing</a>
+                            </h4>
+                            <p class="product-desc">
+                                High-gloss Class-A finish exterior bracket designed for rigid chassis mounting, weatherproofing, and vibration absorption on passenger vehicles.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Class-A Gloss Finish</li>
+                                <li><i class="fa-solid fa-check-circle"></i> High Impact ABS</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Precision Fastener Locators</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-plastic-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Glossy Black Mounting Bracket Housing.png" data-fancybox="product-gallery" data-caption="Glossy Black Mounting Bracket Housing" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12: Glossy Black Reflector Housing -->
+                <div class="grid-item col-lg-4 col-md-6 lighting">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-wand-magic-sparkles me-1"></i> Metallization Ready</span>
+                            <a href="assets/images-data/Glossy Black Reflector Housing.png" data-fancybox="product-gallery" data-caption="Glossy Black Reflector Housing - Aerodynamic Lighting Reflector Base" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Glossy Black Reflector Housing.png" alt="Glossy Black Reflector Housing" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Lighting Reflector Base</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-lighting-components.html">Aerodynamic Reflector Housing</a>
+                            </h4>
+                            <p class="product-desc">
+                                Heat-resistant parabolic reflector housing moulded with ultra-smooth internal surfaces, optimized for aluminum vacuum metallization and optical focus.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Vacuum Metallization Base</li>
+                                <li><i class="fa-solid fa-check-circle"></i> High Thermal Stability (130°C+)</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Parabolic Reflection Focus</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Glossy Black Reflector Housing.png" data-fancybox="product-gallery" data-caption="Glossy Black Reflector Housing" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 13: Off-White Molded Plastic Bracket Assembly -->
+                <div class="grid-item col-lg-4 col-md-6 tractor mouldings">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-screwdriver-wrench me-1"></i> Sub-Assembly</span>
+                            <a href="assets/images-data/Off-White Molded Plastic Bracket Assembly.png" data-fancybox="product-gallery" data-caption="Off-White Molded Plastic Bracket Assembly - TPL Compact Agricultural Bracket Sub-Assembly" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Off-White Molded Plastic Bracket Assembly.png" alt="Off-White Molded Plastic Bracket Assembly" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Agricultural Bracket Component</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/tractor-lighting-components.html">TPL Bracket Sub-Assembly</a>
+                            </h4>
+                            <p class="product-desc">
+                                Multi-part functional bracket assembly engineered for high torque tolerances and sustained mechanical vibration in heavy agricultural machinery.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Reinforced Polymer</li>
+                                <li><i class="fa-solid fa-check-circle"></i> Ultrasonic Welded Assembly</li>
+                                <li><i class="fa-solid fa-check-circle"></i> John Deere Application</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/tractor-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Off-White Molded Plastic Bracket Assembly.png" data-fancybox="product-gallery" data-caption="Off-White Molded Plastic Bracket Assembly" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 14: Studio Orange Ribbed Marker Lens -->
+                <div class="grid-item col-lg-4 col-md-6 lighting reflectors">
+                    <div class="product-showcase-card">
+                        <div class="product-img-wrap">
+                            <span class="product-badge"><i class="fa-solid fa-certificate me-1"></i> Optical Prism</span>
+                            <a href="assets/images-data/Studio Orange Ribbed Marker Lens.png" data-fancybox="product-gallery" data-caption="Studio Orange Ribbed Marker Lens - Side Marker & Reflex Reflector Lens" class="quick-zoom-btn" title="View High-Resolution Image">
+                                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                            </a>
+                            <img src="assets/images-data/Studio Orange Ribbed Marker Lens.png" alt="Studio Orange Ribbed Marker Lens" loading="lazy">
+                        </div>
+                        <div class="product-body">
+                            <div class="product-category">Side Marker &amp; Safety Lens</div>
+                            <h4 class="product-title">
+                                <a href="service/service-details/automotive-lighting-components.html">Orange Ribbed Side Marker Lens</a>
+                            </h4>
+                            <p class="product-desc">
+                                High-intensity optical amber marker lens with micro-faceted prisms for enhanced side conspicuity and commercial vehicle road safety compliance.
+                            </p>
+                            <ul class="product-specs">
+                                <li><i class="fa-solid fa-check-circle"></i> Micro-Facet Retro-Reflectors</li>
+                                <li><i class="fa-solid fa-check-circle"></i> High Impact Acrylic / PC</li>
+                                <li><i class="fa-solid fa-check-circle"></i> E-Mark / AIS Compliant</li>
+                            </ul>
+                            <div class="product-footer">
+                                <a href="service/service-details/automotive-lighting-components.html" class="product-link-btn">
+                                    Explore Specs <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="assets/images-data/Studio Orange Ribbed Marker Lens.png" data-fancybox="product-gallery" data-caption="Orange Ribbed Side Marker Lens" class="product-enquire-btn">
+                                    <i class="fa-solid fa-eye me-1"></i> Preview
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Manufacturing Facilities & Capabilities Banner -->
+            <div class="row mt-5 pt-3">
+                <div class="col-lg-12">
+                    <div class="bg-dark text-white rounded-4 p-4 p-md-5 position-relative overflow-hidden shadow-lg">
+                        <div class="row align-items-center position-relative" style="z-index: 2;">
+                            <div class="col-lg-8">
+                                <span class="badge bg-primary text-white text-uppercase px-3 py-2 rounded-pill mb-3">
+                                    <i class="fa-solid fa-industry me-1"></i> Dual Manufacturing Units in Bhosari, Pune
+                                </span>
+                                <h3 class="text-white display-4 mb-3">Custom Injection Moulding &amp; OEM Contract Manufacturing</h3>
+                                <p class="text-white-50 mb-4 mb-lg-0 lead fs-6">
+                                    Equipped with 10+ precision injection moulding machines ranging from <strong>180T to 750T heavy tonnage</strong> across Plant 1 (Sec 10) and Plant 2 (Sec 7). We provide end-to-end tooling design, precision moulding, ultrasonic welding, and IATF 16949 / ISO 9001 certified quality testing.
+                                </p>
+                            </div>
+                            <div class="col-lg-4 text-lg-end">
+                                <div class="d-flex flex-column flex-sm-row flex-lg-column gap-3 justify-content-lg-end">
+                                    <a href="contact.html" class="btn btn-primary btn-lg">
+                                        <i class="fa-solid fa-file-signature me-2"></i> Request RFQ / Quote
+                                    </a>
+                                    <a href="services.html" class="btn btn-outline-light btn-lg">
+                                        <i class="fa-solid fa-cogs me-2"></i> View All Capabilities
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
-    <!-- Project Section End -->
+    <!-- Products Showcase Section End -->
 
     <!-- Footer Start -->
     <footer class="footer bg-cover jarallax" data-jarallax data-speed=".2">
@@ -437,7 +1142,34 @@
     <script src="assets/js/jquery.timepicker.min.js"></script>
     <script src="assets/js/bootstrap-datepicker.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+        $(window).on('load', function() {
+            var $gallery = $('#gallery-container');
+            if ($gallery.length && typeof $.fn.isotope === 'function') {
+                $gallery.isotope({
+                    itemSelector: '.grid-item',
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.grid-sizer'
+                    }
+                });
 
+                // Relayout after every image load
+                $gallery.find('img').on('load', function() {
+                    $gallery.isotope('layout');
+                });
+
+                // Filter button click event
+                $('.portfolio-menu .nav-link').on('click', function(e) {
+                    e.preventDefault();
+                    var filterValue = $(this).attr('data-filter');
+                    $('.portfolio-menu .nav-link').removeClass('active');
+                    $(this).addClass('active');
+                    $gallery.isotope({ filter: filterValue });
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
